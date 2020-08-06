@@ -28,7 +28,7 @@ class User {
         addItemButton.setAttribute("data-id", this.id)
 
         addItemButton.innerHTML += `<form>
-            ToDo: <input type="textbox" id="todo">
+            ToDo: <input type="text" id="new-item">
             <input type="submit" value="Add ToDo">
         </form>`
 

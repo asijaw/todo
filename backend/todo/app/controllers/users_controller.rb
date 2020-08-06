@@ -16,8 +16,8 @@ class UsersController < ApplicationController
   # POST /users
   def create
     @user = User.new(user_params)
-    @user.lists.build(params[:lists])
-    byebug
+    @user.lists.build(description: params[:lists])
+    
     if @user.save
       render json: @user, status: :created, location: @user
     else

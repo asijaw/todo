@@ -57,10 +57,8 @@ function formSubmission() {
     })
     .then(resp => resp.json())
     .then(user => {
-        console.log(user)
-        
         let u = new User(user.id, user.username, user.email, user.lists)
-        //u.renderUser()
+        u.renderUser()
 
     })
 }
@@ -76,18 +74,15 @@ function deleteUser() {
     location.reload()
 }
 
-function addItem(e) {
-    e.preventDefault()
+function addItem() {
+    event.preventDefault()
 
-    let todo = document.getElementById("todo").value
-    let userID = 1
-    console.log(userID)
+    let todo = document.getElementById("new-item").value
     let newItem = {
-        description: todo,
-        user_id: userID
+        description: todo
     }
 
-    fetch(`${BASE_URL}/lists`, {
+    fetch(`${BASE_URL}/users`, {
         method: "POST",
         headers: {
         'Accept': 'application/json',
@@ -96,9 +91,9 @@ function addItem(e) {
         body: JSON.stringify(newItem)
     })
     .then(r => r.json())
-    .then(userLists => {
+    .then(userList => {
         
-        //console.log(userLists)
+        console.log(userList)
         // let listArray = userLists.filter(item => (item.user_id === user.id))
         // let items = listArray.map(item => {return item.description})
         
