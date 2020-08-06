@@ -13,9 +13,11 @@ class User {
         const dltUserButton = document.createElement("button")
         const addItemButton = document.createElement("new-item")
         const ul = document.createElement("ul")
+        const list = document.createElement("div")
 
         div.setAttribute("class", "card")
         ul.setAttribute("data-id", this.id) 
+        list.setAttribute("data-id", this.id)
 
         h3.innerHTML = `${this.username} `
 
@@ -35,7 +37,8 @@ class User {
         addItemButton.addEventListener("submit", addItem)
 
         h3.appendChild(dltUserButton)
-        ul.appendChild(h3)
+        list.appendChild(h3)
+        ul.appendChild(list)
         div.appendChild(ul)
 
         for (let item of this.lists) {

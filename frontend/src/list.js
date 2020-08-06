@@ -9,6 +9,7 @@ class List {
 
     renderListItem () {
 
+        const div = document.querySelector(`div[data-id="${this.user_id}"]`)
         const ul = document.querySelector(`ul[data-id="${this.user_id}"]`)
         const li = document.createElement("li")
         const p = document.createElement("p")
@@ -30,7 +31,7 @@ class List {
         
         p.appendChild(deleteButton)
         li.appendChild(p)
-        ul.appendChild(li)
+        div.appendChild(li)
         
     }
 

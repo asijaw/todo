@@ -16,7 +16,6 @@ function fetchUsers() {
                 let listArray = userLists.filter(item => (item.user_id === user.id))
                 let u = new User(user.id, user.username, user.email, listArray)
                 u.renderUser()
-                console.log(u)
             })
         }
     })
@@ -75,14 +74,18 @@ function deleteUser() {
 }
 
 function addItem() {
+    
     event.preventDefault()
-
+    let userID = event.target.parentElement.dataset.id
     let todo = document.getElementById("new-item").value
+
     let newItem = {
-        description: todo
+        user_id: userID,
+        description: todo,
+
     }
 
-    fetch(`${BASE_URL}/users`, {
+    fetch(`${BASE_URL}/lists`, {
         method: "POST",
         headers: {
         'Accept': 'application/json',
@@ -91,11 +94,11 @@ function addItem() {
         body: JSON.stringify(newItem)
     })
     .then(r => r.json())
-    .then(userList => {
+    .then(list => {
         
-        console.log(userList)
-        // let listArray = userLists.filter(item => (item.user_id === user.id))
-        // let items = listArray.map(item => {return item.description})
+        console.log(list)
+        let l = new List(list.id, list.description, list.user_id)
+        l.renderListItem()
         
     })
 }
