@@ -1,0 +1,32 @@
+
+ul {
+  background-color: #eeeeee;
+  
+  height: 250px;
+  width: 300px;
+  
+  padding: 10px;
+  border-radius: 10px;
+  list-style-type: none;
+}
+
+button.remove-btn {
+  font-size: .65em;
+  color: #fff;
+  background-color: rgb(209, 75, 93);
+  border-radius: 10px;
+}
+
+button.delete-user-btn {
+  font-size: .65em;
+  color: #fff;
+  background-color: rgb(107, 17, 110);
+  border-radius: 10px;
+}
+
+input[type=submit] {
+  font-size: .65em;
+  color: #fff;
+  background-color: rgb(23, 151, 44);
+  border-radius: 10px;
+}
