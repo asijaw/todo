@@ -39,27 +39,30 @@ function formSubmission() {
     let username = document.getElementById("username").value
     let email = document.getElementById("email").value
     let todo = document.getElementById("todo").value
- 
-    let user = {
-       username: username,
-       email: email,
-       lists: todo
-    }
- 
-    fetch(`${BASE_URL}/users`, {
-        method: "POST",
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(user)
-    })
-    .then(resp => resp.json())
-    .then(user => {
-        let u = new User(user.id, user.username, user.email, user.lists)
-        u.renderUser()
 
-    })
+    if (username && email && todo) {
+ 
+        let user = {
+        username: username,
+        email: email,
+        lists: todo
+        }
+    
+        fetch(`${BASE_URL}/users`, {
+            method: "POST",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+        .then(resp => resp.json())
+        .then(user => {
+            let u = new User(user.id, user.username, user.email, user.lists)
+            u.renderUser()
+
+        })
+    }
 }
 
 function deleteUser() {
@@ -77,7 +80,7 @@ function addItem() {
     
     event.preventDefault()
     let userID = event.target.parentElement.dataset.id
-    let todo = document.getElementById("new-item").value
+    let todo = document.getElementById(`new-item-${userID}`).value
 
     let newItem = {
         user_id: userID,

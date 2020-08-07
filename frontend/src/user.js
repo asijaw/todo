@@ -30,7 +30,7 @@ class User {
         addItemButton.setAttribute("data-id", this.id)
 
         addItemButton.innerHTML += `<form>
-            ToDo: <input type="text" id="new-item">
+            ToDo: <input type="text" id="new-item-${this.id}">
             <input type="submit" value="Add ToDo">
         </form>`
 
