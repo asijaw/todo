@@ -41,10 +41,13 @@ class User {
         ul.appendChild(list)
         div.appendChild(ul)
 
-        
-        for (let item of this.lists) {
-            //console.log(item)
-            let l = new List(item.id, item.description, item.user_id)
+        if (!!this.lists.length){
+            for (let item of this.lists) {
+                let l = new List(item.id, item.description, item.user_id)
+                l.renderListItem()
+            }
+        }else {
+            let l = new List(this.lists.id, this.lists.description, this.lists.user_id)
             l.renderListItem()
         }
 

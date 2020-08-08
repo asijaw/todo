@@ -48,7 +48,6 @@ function formSubmission() {
         lists: lists
         }
     
-        console.log(user.lists)
         fetch(`${BASE_URL}/users`, {
             method: "POST",
             headers: {
@@ -59,9 +58,26 @@ function formSubmission() {
         })
         .then(resp => resp.json())
         .then(userObj => {
-            console.log(userObj.lists)
-            //let u = new User(user.id, user.username, user.email, user.lists)
-            //u.renderUser()
+            let userList = {
+                user_id: userObj.id,
+                description: lists
+            }
+
+            fetch(`${BASE_URL}/lists`, {
+                method: "POST",
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(userList)
+            })
+            .then(resp => resp.json())
+            .then(listObj => {
+            
+                let u = new User(userObj.id, userObj.username, userObj.email, listObj)
+                //console.log(u)
+                u.renderUser()
+            })
 
         })
     //}
