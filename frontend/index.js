@@ -40,7 +40,7 @@ function formSubmission() {
     let email = document.getElementById("email").value
     let lists = document.getElementById("todo").value
 
-    //if (username && email && todo) {
+    if (username && email && todo) {
  
         let user = {
         username: username,
@@ -75,12 +75,11 @@ function formSubmission() {
             .then(listObj => {
             
                 let u = new User(userObj.id, userObj.username, userObj.email, listObj)
-                //console.log(u)
                 u.renderUser()
             })
 
         })
-    //}
+    }
 }
 
 function deleteUser() {
