@@ -13,13 +13,42 @@ List.destroy_all
 users_name = [
   'Natalie',
   'Prince',
-  'Dick',
+  'Gabby',
   'Rachel',
   'Garry',
   'Jason',
   'Matt',
-  'Niky',
+  'Hailey',
   'Ashley'
+]
+
+users_task = [
+  'Cook Dinner',
+  'Clean the House',
+  'Do Homework',
+  'Code Javascript',
+  'Learn a New Skill',
+  'Walk the Dog',
+  'Get the Car Washed',
+  'Make Doctors Appointment',
+  'Do the Laundry',
+  'Paint a Picture',
+  'Watch a Movie',
+  'Do a Zoom Chat',
+  'Plan a Party',
+  'Call your Mom',
+  'Do Something Nice for Someone',
+  'Go for a Run',
+  'Go to the Store',
+  'Go to Virtusl Meetup',
+  'Update Resume',
+  'Write a Blog Post',
+  'Research New Tech',
+  'Binge Watch a Show',
+  'Go to the Gym',
+  'Plant a Garden',
+  'Wear a Mask',
+  'Wash your Hands',
 ]
  
 user_collection = []
@@ -29,10 +58,10 @@ users_name.each do |name|
 end
  
 user_collection.each do |user|
-  team_size = 4
+  list_size = 4
  
-  (1..team_size).each_with_index do |listItem, index|
-    description = "item #{index}"
+  (1..list_size).each do |listItem|
+    description = users_task.sample
     List.create(description: description, user_id: user.id)
   end
 end
