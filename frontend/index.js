@@ -40,7 +40,7 @@ function formSubmission() {
     let email = document.getElementById("email").value
     let todo = document.getElementById("todo").value
 
-    if (username && email && todo) {
+    //if (username && email && todo) {
  
         let user = {
         username: username,
@@ -48,6 +48,7 @@ function formSubmission() {
         lists: todo
         }
     
+        console.log(user.lists)
         fetch(`${BASE_URL}/users`, {
             method: "POST",
             headers: {
@@ -58,11 +59,12 @@ function formSubmission() {
         })
         .then(resp => resp.json())
         .then(user => {
+            console.log(user.lists)
             let u = new User(user.id, user.username, user.email, user.lists)
             u.renderUser()
 
         })
-    }
+    //}
 }
 
 function deleteUser() {
