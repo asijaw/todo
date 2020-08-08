@@ -16,7 +16,7 @@ class ListsController < ApplicationController
   # POST /lists
   def create
     @list = List.new(list_params)
-
+    
     if @list.save
       render json: @list, status: :created, location: @list
     else

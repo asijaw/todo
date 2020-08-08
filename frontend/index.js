@@ -38,14 +38,14 @@ function formSubmission() {
     event.preventDefault() 
     let username = document.getElementById("username").value
     let email = document.getElementById("email").value
-    let todo = document.getElementById("todo").value
+    let lists = document.getElementById("todo").value
 
     //if (username && email && todo) {
  
         let user = {
         username: username,
         email: email,
-        lists: todo
+        lists: lists
         }
     
         console.log(user.lists)
@@ -58,10 +58,10 @@ function formSubmission() {
             body: JSON.stringify(user)
         })
         .then(resp => resp.json())
-        .then(user => {
-            console.log(user.lists)
-            let u = new User(user.id, user.username, user.email, user.lists)
-            u.renderUser()
+        .then(userObj => {
+            console.log(userObj.lists)
+            //let u = new User(user.id, user.username, user.email, user.lists)
+            //u.renderUser()
 
         })
     //}

@@ -41,6 +41,7 @@ class User {
         ul.appendChild(list)
         div.appendChild(ul)
 
+        
         for (let item of this.lists) {
             //console.log(item)
             let l = new List(item.id, item.description, item.user_id)
