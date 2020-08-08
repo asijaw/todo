@@ -15,9 +15,9 @@ class List {
         const p = document.createElement("p")
         const deleteButton = document.createElement("button")
         const addButton = document.createElement("button")
-        const completeBtn = document.createElement("input")
+        //const completeBtn = document.createElement("input")
 
-        completeBtn.setAttribute("type", "checkbox")
+        //completeBtn.setAttribute("type", "checkbox")
 
         
         deleteButton.setAttribute("class", "remove-btn")
@@ -25,7 +25,7 @@ class List {
         deleteButton.addEventListener("click", removeItem)
         deleteButton.innerHTML = "Remove"
 
-        p.appendChild(completeBtn)
+        //p.appendChild(completeBtn)
         p.innerHTML += ` ${this.description} `
 
         
