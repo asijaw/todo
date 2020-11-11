@@ -1,4 +1,4 @@
-# Movie Madness
+# TO-DO
 
 This is a Javascript web app built with a Rails API as a portfolio project for the Flatiron School Software Engineering curriculum.
 
