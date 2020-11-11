@@ -6,18 +6,23 @@ document.addEventListener("DOMContentLoaded", () => {
 const BASE_URL = "http://127.0.0.1:3000";
 
 function fetchUsers() {
+    //let listArray = []
     fetch(`${BASE_URL}/users`)
     .then(resp => resp.json())
     .then(users => {
-        for(let user of users) {
+        // for(let user of users) {
+
             fetch(`${BASE_URL}/lists`)
             .then(r => r.json())
             .then(userLists => {
-                let listArray = userLists.filter(item => (item.user_id === user.id))
-                let u = new User(user.id, user.username, user.email, listArray)
-                u.renderUser()
+                for(let user of users) {
+                    let listArray = userLists.filter(item => (item.user_id === user.id))
+                    //listArray = userLists
+                    let u = new User(user.id, user.username, user.email, listArray)
+                    u.renderUser()
+                }
             })
-        }
+        //}
     })
 }
 
